@@ -2,6 +2,7 @@ package com.tang.controller;
 
 import com.tang.dao.User;
 import com.tang.service.UserService;
+import io.swagger.models.auth.In;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -27,13 +28,18 @@ public class UserController {
     }
 
     @PostMapping("/saveUser")
-    public int saveUser(User user) {
+    public int saveUser(@RequestBody User user) {
         return userService.saveUser(user);
     }
 
-    @PostMapping("/deleteUserById")
-    public int deleteUserById(int id) {
+    @DeleteMapping("/deleteUserById/{id}")
+    public int deleteUserById(@PathVariable(name = "id") Integer id) {
         return userService.deleteUserById(id);
+    }
+
+    @PostMapping("/deleteBatch/{ids}")
+    public boolean deleteBatchByIds(@PathVariable(name = "ids") List<Integer> ids) {
+        return userService.deleteBatchByIds(ids);
     }
 
     @GetMapping("/page")

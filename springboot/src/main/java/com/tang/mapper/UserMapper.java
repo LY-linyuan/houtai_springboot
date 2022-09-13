@@ -24,4 +24,6 @@ public interface UserMapper {
     List<User> selectPage(Integer pageNum, Integer pageSize, String username);
 
     int selectTotal(String username);
+
+    int deleteBatchByIds(List<Integer> ids);
 }

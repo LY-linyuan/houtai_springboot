@@ -87,6 +87,12 @@
             </if>
     </select>
 
+    <delete id="deleteBatchByIds">
+        delete from sys_user where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 
 </mapper>

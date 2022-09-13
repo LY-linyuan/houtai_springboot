@@ -19,4 +19,6 @@ public interface UserService {
     List<User> selectPage(Integer pageNum, Integer pageSize, String username);
 
     int selectTotal(String username);
+
+    boolean deleteBatchByIds(List<Integer> ids);
 }

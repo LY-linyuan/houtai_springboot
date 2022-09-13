@@ -49,4 +49,14 @@ public class UserServiceImpl implements UserService {
     public int selectTotal(String username) {
         return userMapper.selectTotal(username);
     }
+
+    @Override
+    public boolean deleteBatchByIds(List<Integer> ids) {
+        int ret = userMapper.deleteBatchByIds(ids);
+        if (ret > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
