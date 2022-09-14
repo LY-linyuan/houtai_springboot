@@ -26,4 +26,6 @@ public interface UserMapper {
     int selectTotal(String username);
 
     int deleteBatchByIds(List<Integer> ids);
+
+    int saveBatch(List<User> userList);
 }

@@ -59,4 +59,14 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+
+    @Override
+    public boolean saveBatch(List<User> userList) {
+        int i = userMapper.saveBatch(userList);
+        if (i > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

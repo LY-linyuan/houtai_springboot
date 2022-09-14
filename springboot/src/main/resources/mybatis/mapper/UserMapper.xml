@@ -94,6 +94,27 @@
         </foreach>
     </delete>
 
+    <insert id="saveBatch">
+        insert into sys_user (
+            username,
+            password,
+            nickname,
+            email,
+            phone,
+            address)
+        values
+        <foreach collection="list" item="user" separator=",">
+            (
+            #{user.username},
+            #{user.password},
+            #{user.nickname},
+            #{user.email},
+            #{user.phone},
+            #{user.address}
+            )
+        </foreach>
+    </insert>
+
 
 </mapper>
     

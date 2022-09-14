@@ -21,4 +21,6 @@ public interface UserService {
     int selectTotal(String username);
 
     boolean deleteBatchByIds(List<Integer> ids);
+
+    boolean saveBatch(List<User> userList);
 }
